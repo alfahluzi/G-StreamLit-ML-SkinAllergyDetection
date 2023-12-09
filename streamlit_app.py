@@ -6,13 +6,19 @@ import tensorflow as tf
 from PIL import Image
 
 """
-Allergy Detection
+Allergy Detection.
+
+
+This is demonstration of my CNN Model for detecting which the skin have allergy or not.
+The model is not train for detecting what kind of allergy is.
+
+The model need a picture with full (atleast 80%) of skin image.
 """
 
 # Load trained model
-loaded_model = tf.keras.models.load_model('model.h5')
-input_shape = (128, 128)
-label = ["cardboard", "glass", "metal", "paper", "plastic", "trash"]
+loaded_model = tf.keras.models.load_model('model_allergy.h5')
+input_shape = (56,56)
+label = ["Non Allergy", "Allergy"]
 
 img_file_buffer = st.camera_input("Take a picture")
 
