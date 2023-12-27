@@ -22,7 +22,6 @@ label = ["Non Allergy", "Allergy"]
 img_file_buffer = st.camera_input("Take a picture")
 uploaded_file = st.file_uploader("Choose a file")
 
-
 if img_file_buffer is not None or uploaded_file is not None:
     if uploaded_file is None:
         input_file = img_file_buffer
