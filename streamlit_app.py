@@ -20,13 +20,18 @@ input_shape = (56,56)
 label = ["Non Allergy", "Allergy"]
 
 img_file_buffer = st.camera_input("Take a picture")
+uploaded_file = st.file_uploader("Choose a file")
 
-if img_file_buffer is not None:
+
+if img_file_buffer is not None or uploaded_file is not None:
+    if uploaded_file is None:
+        input_file = img_file_buffer
+    else: input_file = uploaded_file
     # To read image file buffer as a PIL Image:
-    img = Image.open(img_file_buffer)
+    img = Image.open(input_file)
     img_array = np.array(img)
 
-    image = Image.open(img_file_buffer)
+    image = Image.open(input_file)
     # Resize img to fit in model input shape
     image = image.resize(input_shape)
     # Convert the image to a NumPy array
